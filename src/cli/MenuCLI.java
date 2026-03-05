@@ -31,8 +31,12 @@ public class MenuCLI {
                     0. Sair
                     """);
             System.out.print("🔢Escolha uma opção: ");
-            option = Integer.parseInt(sc.nextLine());
-
+            try {
+                option = Integer.parseInt(sc.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("Opção inválida! Digite um número.");
+                continue;
+            }
             processOption(option);
         }
     }
@@ -46,7 +50,7 @@ public class MenuCLI {
             case 5 -> deleteById();
             case 6 -> reportByPrice();
             case 0 -> System.out.println("Encerrando o sistema...");
-            default -> System.out.println("Opção inválida!");
+            default -> System.out.println("Opção inválida! Digite um número válido.");
         }
     }
 
