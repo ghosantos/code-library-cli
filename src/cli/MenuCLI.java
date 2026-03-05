@@ -66,7 +66,7 @@ public class MenuCLI {
 
         System.out.print("Digite o preço do livro: ");
         String priceStr = sc.nextLine();
-        double price = Double.parseDouble(priceStr);
+        double price = Double.parseDouble(priceStr.replace(",", "."));
 
         Book book = new Book(title, author, category, price);
 
@@ -111,7 +111,7 @@ public class MenuCLI {
         if (!newAuthor.trim().isEmpty()) bookInMemory.setAutor(newAuthor);
         if (!newCategory.trim().isEmpty()) bookInMemory.setCategoria(newCategory);
         if (!newPriceStr.trim().isEmpty()){
-            double newPrice = Double.parseDouble(newPriceStr);
+            double newPrice = Double.parseDouble(newPriceStr.replace(",", "."));
             bookInMemory.setPreco(newPrice);
         }
 
